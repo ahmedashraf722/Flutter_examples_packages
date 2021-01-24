@@ -1,5 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_examples/page_views_screens/page_views_screens.dart';
+import 'package:flutter_examples/splash_screens.dart';
 
 class ImagesSlides extends StatefulWidget {
   @override
@@ -16,17 +18,24 @@ class _ImagesSlidesState extends State<ImagesSlides> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "Images Carousel Slider",
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
+    return MaterialApp(
+      routes: {
+        '/a': (context) => PageViewScreens(),
+        '/b': (context) => SplashScreens(),
+        '/c': (context) => ImagesSlides(),
+      },
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text(
+            "Images Carousel Slider",
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+            ),
           ),
+          centerTitle: true,
         ),
-        centerTitle: true,
+        body: buildCarousel(),
       ),
-      body: buildCarousel(),
     );
   }
 

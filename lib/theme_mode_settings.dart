@@ -13,9 +13,18 @@ class _ThemeModeSettingsState extends State<ThemeModeSettings> {
   Widget build(BuildContext context) {
     return MaterialApp(
       themeMode: themeMode,
-      theme: ThemeData(primaryColor: Colors.blue, canvasColor: Colors.white),
-      darkTheme:
-          ThemeData(primaryColor: Colors.pink, canvasColor: Colors.black87),
+      theme: ThemeData(
+        primaryColor: Colors.blue,
+        canvasColor: Colors.white,
+      ),
+      darkTheme: ThemeData(
+        primaryColor: Colors.pink,
+        canvasColor: Colors.black87,
+        textTheme: TextTheme(
+            bodyText2: TextStyle(
+          color: Colors.white,
+        )),
+      ),
       home: Scaffold(
         appBar: AppBar(
           title: Text("Theme Mode"),
@@ -27,7 +36,12 @@ class _ThemeModeSettingsState extends State<ThemeModeSettings> {
             children: [
               Padding(
                 padding: const EdgeInsets.all(35),
-                child: Text("Light"),
+                child: Text(
+                  "Light",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
               ),
               Switch(
                 activeColor: Colors.redAccent,
@@ -46,7 +60,12 @@ class _ThemeModeSettingsState extends State<ThemeModeSettings> {
               ),
               Padding(
                 padding: const EdgeInsets.all(35),
-                child: Text("Dark"),
+                child: Text(
+                  "Dark",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
               ),
             ],
           ),
