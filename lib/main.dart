@@ -1,11 +1,86 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_examples/my_colors.dart';
+import 'package:flutter_examples/sign.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
-  runApp(Mu());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  SharedPreferences _pref = await SharedPreferences.getInstance();
+  var email = _pref.getString("e");
+  var password = _pref.getString("p");
+
+  runApp(email != null && password != null ? Home() : Sign());
 }
 
-class Mu extends StatefulWidget {
+class Home extends StatefulWidget {
+  @override
+  _HomeState createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          centerTitle: true,
+          title: Text("Main Screen"),
+        ),
+        body: Center(
+          child: Text("Main Screen SuccessFull"),
+        ),
+      ),
+    );
+  }
+}
+
+/*
+class Home extends StatefulWidget {
+  @override
+  _HomeState createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  @override
+  void initState() {
+    setData();
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          centerTitle: true,
+          title: Text("Main Screen"),
+        ),
+        body: Center(
+          child: Builder(
+             builder: (ctx) => RaisedButton(
+                child: Text("Go to Another Screen"),
+                onPressed: () {
+                  Navigator.of(ctx)
+                      .push(MaterialPageRoute(builder: (ctx) => Another()));
+                }),
+          ),
+        ),
+      ),
+    );
+  }
+
+  setData() async {
+    SharedPreferences _pref = await SharedPreferences.getInstance();
+
+    _pref.setString('name', 'Ahmed');
+    _pref.setInt('age', 24);
+    _pref.setDouble('height', 181.5);
+    _pref.setBool('developer', true);
+    _pref.setStringList('skill', ['Dart', 'Flutter']);
+  }
+}
+*/
+
+/*class Mu extends StatefulWidget {
   @override
   _MuState createState() => _MuState();
 }
@@ -32,7 +107,7 @@ class _MuState extends State<Mu> {
       ),
     );
   }
-}
+}*/
 
 /*void main() async {
   WidgetsFlutterBinding.ensureInitialized();
