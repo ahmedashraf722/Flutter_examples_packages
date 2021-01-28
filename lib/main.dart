@@ -1,7 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_examples/sign.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_examples/interactive_widgets_viewers.dart';
 
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(Home());
+}
+
+class Home extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: InteractiveViewers(),
+    );
+  }
+}
+
+/*
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SharedPreferences _pref = await SharedPreferences.getInstance();
@@ -32,6 +46,7 @@ class _HomeState extends State<Home> {
     );
   }
 }
+*/
 
 /*
 class Home extends StatefulWidget {

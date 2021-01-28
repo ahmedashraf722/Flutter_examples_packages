@@ -39,6 +39,12 @@ dependencies:
   toast: ^0.1.5
   url_launcher: ^5.7.10
   http: ^0.12.2
+  marquee: ^1.6.1
+  image_picker: ^0.6.7+21
+  multi_image_picker: ^4.7.14
+  flutter_colorpicker: ^0.3.5
+  percent_indicator: ^2.1.9
+  flutter_launcher_icons: ^0.8.1
 
 dev_dependencies:
   flutter_test:
@@ -48,6 +54,12 @@ dev_dependencies:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
+
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/icons/d.png"
+
 
 # The following section is specific to Flutter.
 flutter:

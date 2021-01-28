@@ -40,8 +40,8 @@ class _SignState extends State<Sign> {
                         await SharedPreferences.getInstance();
                     _pref.setString("e", _emailC.text);
                     _pref.setString("p", _passwordC.text);
-                    Navigator.of(ctx).pushReplacement(
-                        MaterialPageRoute(builder: (ctx) => Home()));
+                   // Navigator.of(ctx).pushReplacement(
+                      //  MaterialPageRoute(builder: (ctx) => Home()));
                   },
                 ),
               ),
