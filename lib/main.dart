@@ -1,20 +1,211 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_examples/interactive_widgets_viewers.dart';
+import 'package:flutter_examples/animated_examples/animated_im.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(Home());
+  runApp(
+    Home(),
+  );
 }
 
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: InteractiveViewers(),
+      theme: ThemeData(
+        primaryColor: Colors.purpleAccent,
+        canvasColor: Color.fromRGBO(255, 238, 219, 1),
+      ),
+      home: AnimatedImplicitS(),
+    );
+  }
+}
+/* MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (_) => Products(),
+        ),
+      ],
+      child: Home(),
+    ),*/
+/* runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (_) => MyProviders(),
+        ),
+      ],
+      child: MyHome(),
+    ),
+  );*/
+
+/*
+class MyHome extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: ConsumerProviderSelectorsT(),
     );
   }
 }
 
+class ConsumerProviderSelectorsT extends StatefulWidget {
+  @override
+  _ConsumerProviderSelectorsState createState() =>
+      _ConsumerProviderSelectorsState();
+}
+
+class _ConsumerProviderSelectorsState
+    extends State<ConsumerProviderSelectorsT> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text("Providers Selector and Consumers"),
+      ),
+      body: DefaultTextStyle(
+        style: TextStyle(
+          fontSize: 40,
+          color: Colors.black87,
+          fontWeight: FontWeight.bold,
+        ),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(Provider.of<MyProviders>(context, listen: true)
+                  .counter
+                  .toString()),
+              Text(Provider.of<MyProviders>(context, listen: false)
+                  .counter
+                  .toString()),
+              Text(context.watch<MyProviders>().counter.toString()),
+              Consumer<MyProviders>(
+                builder: (ctx, val, _) {
+                  return Text("${val.counter}");
+                },
+              ),
+              Selector<MyProviders, int>(
+                selector: (ctx, val) => val.counter,
+                builder: (ctx, value, _) => Text("$value"),
+              ),
+              Text(context
+                  .select<MyProviders, int>((value) => value.num)
+                  .toString()),
+            ],
+          ),
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          context.read<MyProviders>().increment();
+        },
+        child: Icon(Icons.add),
+      ),
+    );
+  }
+}
+*/
+
+/*class Home extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: ChangeNotifierProvider<MyProviderTheme>(
+        create: (_) => MyProviderTheme(),
+        child: ThemeChange(),
+      ),
+    );
+  }
+}
+
+class ThemeChange extends StatefulWidget {
+  @override
+  _ThemeChangeState createState() => _ThemeChangeState();
+}
+
+class _ThemeChangeState extends State<ThemeChange> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      themeMode: Provider.of<MyProviderTheme>(context).tm,
+      theme: ThemeData(
+        primaryColor: Colors.blue,
+      ),
+      darkTheme: ThemeData(
+        primaryColor: Colors.black45,
+      ),
+      home: ThemesT(),
+    );
+  }
+}
+
+class ThemesT extends StatefulWidget {
+  @override
+  _ThemesTState createState() => _ThemesTState();
+}
+
+class _ThemesTState extends State<ThemesT> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text("Provider Theme"),
+      ),
+      drawer: Center(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(15),
+              child: Text("Light"),
+            ),
+            Switch(
+              value: Provider.of<MyProviderTheme>(context, listen: false).slVal,
+              onChanged: (bool val) =>
+                  Provider.of<MyProviderTheme>(context, listen: false)
+                      .switchTheme(val),
+              activeColor: Colors.red,
+              inactiveThumbColor: Colors.blueGrey,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(15),
+              child: Text("Dark"),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}*/
+
+/*
+
+class CounterPro extends StatefulWidget {
+  @override
+  _CounterProState createState() => _CounterProState();
+}
+
+class _CounterProState extends State<CounterPro> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('Demo')),
+      body: Center(
+        child: Dashboard(),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: () {
+          Provider.of<MyProvider>(context, listen: false).increment();
+        },
+      ),
+    );
+  }
+}
+*/
 /*
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

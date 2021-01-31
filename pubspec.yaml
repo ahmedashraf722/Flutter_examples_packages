@@ -45,6 +45,7 @@ dependencies:
   flutter_colorpicker: ^0.3.5
   percent_indicator: ^2.1.9
   flutter_launcher_icons: ^0.8.1
+  provider:
 
 dev_dependencies:
   flutter_test:
@@ -58,7 +59,7 @@ dev_dependencies:
 flutter_icons:
   android: "launcher_icon"
   ios: true
-  image_path: "assets/icons/d.png"
+  image_path: "assets/icons/p.png"
 
 
 # The following section is specific to Flutter.
