@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_examples/animated_examples/animated_im.dart';
+import 'package:flutter_examples/animated_examples/animated_slide_dialog_s.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,7 +16,7 @@ class Home extends StatelessWidget {
         primaryColor: Colors.purpleAccent,
         canvasColor: Color.fromRGBO(255, 238, 219, 1),
       ),
-      home: AnimatedImplicitS(),
+      home: AnimatedSlideDialogS(),
     );
   }
 }
