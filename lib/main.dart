@@ -1,10 +1,29 @@
+//import 'dart:convert';
+
+//import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_examples/animated_examples/animated_slide_dialog_s.dart';
+import 'package:provider/provider.dart';
+//import 'package:http/http.dart' as http;
+
+import 'products_p/home_page_products.dart';
+import 'products_p/products_provider.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+
+  /*DatabaseReference _ref =
+      FirebaseDatabase.instance.reference().child("product");
+  _ref.push().set({"id": 10});*/
+
   runApp(
-    Home(),
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (_) => Products(),
+        ),
+      ],
+      child: Home(),
+    ),
   );
 }
 
@@ -13,10 +32,11 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        primaryColor: Colors.purpleAccent,
+        primaryColor: Colors.pink,
+        primarySwatch: Colors.purple,
         canvasColor: Color.fromRGBO(255, 238, 219, 1),
       ),
-      home: AnimatedSlideDialogS(),
+      home: HomePageProducts(),
     );
   }
 }

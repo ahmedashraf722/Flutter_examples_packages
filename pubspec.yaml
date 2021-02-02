@@ -51,6 +51,8 @@ dependencies:
   like_button: ^1.0.4
   flutter_spinkit: ^4.1.2+1
   slide_popup_dialog: ^0.0.2
+  firebase_core:
+  firebase_database:
 
 dev_dependencies:
   flutter_test:
